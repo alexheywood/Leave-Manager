@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="container">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Leave Manager</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -28,14 +28,14 @@
                                 Leave Management
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Leave Types</a></li>
-                                <li><a class="dropdown-item" href="#">Leave Allocation</a></li>
-                                <li><a class="dropdown-item" href="#">Leave Request</a></li>
-                                <li><a class="dropdown-item" href="#">Employee Management</a></li>
+                                <li><a class="dropdown-item nav-link" asp-area="" asp-controller="LeaveTypes" asp-action="Index">Leave Types</a></li>
+                                <li><a class="dropdown-item nav-link" href="#">Leave Allocation</a></li>
+                                <li><a class="dropdown-item nav-link" href="#">Leave Request</a></li>
+                                <li><a class="dropdown-item nav-link" href="#">Employee Management</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
