@@ -13,6 +13,7 @@ namespace LeaveManager.web.ViewModels
 
         [Display(Name = "Standard Number of Days")]
         [Required]
+        [Range(0, 365, ErrorMessage = "Please provide a valid number between 0 - 365.")]
         public int DefaultDays { get; set; }
     }
 }

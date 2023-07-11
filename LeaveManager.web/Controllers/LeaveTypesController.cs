@@ -46,7 +46,9 @@ namespace LeaveManager.web.Controllers
                 return NotFound();
             }
 
-            return View(leaveType);
+            var leaveTypeViewModel = mapper.Map<LeaveTypeViewModel>(leaveType); 
+
+            return View(leaveTypeViewModel);
         }
 
         // GET: LeaveTypes/Create
@@ -86,7 +88,10 @@ namespace LeaveManager.web.Controllers
             {
                 return NotFound();
             }
-            return View(leaveType);
+
+            var leaveTypeViewModel = mapper.Map<LeaveTypeViewModel>(leaveType);
+
+            return View(leaveTypeViewModel);
         }
 
         // POST: LeaveTypes/Edit/5
@@ -94,9 +99,9 @@ namespace LeaveManager.web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,DefaultDays,Id,DateCreated,DateModified")] LeaveType leaveType)
+        public async Task<IActionResult> Edit(int id, LeaveTypeViewModel leaveTypeViewModel)
         {
-            if (id != leaveType.Id)
+            if (id != leaveTypeViewModel.Id)
             {
                 return NotFound();
             }
@@ -105,12 +110,14 @@ namespace LeaveManager.web.Controllers
             {
                 try
                 {
+                    var leaveType = mapper.Map<LeaveType>(leaveTypeViewModel);
+
                     _context.Update(leaveType);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LeaveTypeExists(leaveType.Id))
+                    if (!LeaveTypeExists(leaveTypeViewModel.Id))
                     {
                         return NotFound();
                     }
@@ -121,7 +128,7 @@ namespace LeaveManager.web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(leaveType);
+            return View(leaveTypeViewModel);
         }
 
         // GET: LeaveTypes/Delete/5
