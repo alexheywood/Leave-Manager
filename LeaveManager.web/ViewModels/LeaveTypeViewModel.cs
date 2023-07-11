@@ -6,10 +6,13 @@ namespace LeaveManager.web.ViewModels
     {
         public int Id { get; set; }
 
+        [Display(Name = "Leave Type")]
+        [Required]
         public string Name { get; set; }
 
 
         [Display(Name = "Standard Number of Days")]
+        [Required]
         public int DefaultDays { get; set; }
     }
 }
